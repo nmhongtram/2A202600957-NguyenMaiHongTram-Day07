@@ -1,0 +1,62 @@
+{
+  "chuong1-3_quy-dinh-chung.txt": {
+    "source": "chuong1-3_quy-dinh-chung.txt",
+    "category": "quy_dinh_chung",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "I-III",
+    "topic": "quy-dinh-chung",
+    "description": "Chương I: Quy định chung — phạm vi, đối tượng áp dụng, nguyên tắc. Chương II: Việc làm. Chương III: Hợp đồng lao động"
+  },
+  "chuong4-6_giao-duc-nghe-nghiep.txt": {
+    "source": "chuong4-6_giao-duc-nghe-nghiep.txt",
+    "category": "giao_duc_nghe_nghiep",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "IV-VI",
+    "topic": "giao-duc-nghe-nghiep",
+    "description": "Chương IV: Giáo dục nghề nghiệp và phát triển kỹ năng nghề. Chương V: Đối thoại, thương lượng tập thể, thỏa ước lao động tập thể. Chương VI: Tiền lương"
+  },
+  "chuong7-9_thoi-gio-lam-viec.txt": {
+    "source": "chuong7-9_thoi-gio-lam-viec.txt",
+    "category": "thoi_gio_lam_viec",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "VII-IX",
+    "topic": "thoi-gio-lam-viec",
+    "description": "Chương VII: Thời giờ làm việc, thời giờ nghỉ ngơi. Chương VIII: Kỷ luật lao động, trách nhiệm vật chất. Chương IX: An toàn, vệ sinh lao động"
+  },
+  "chuong10-12_lao-dong-nu.txt": {
+    "source": "chuong10-12_lao-dong-nu.txt",
+    "category": "lao_dong_nu_binh_dang_gioi",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "X-XII",
+    "topic": "lao-dong-nu",
+    "description": "Chương X: Quy định riêng đối với lao động nữ và bảo đảm bình đẳng giới. Chương XI: Lao động chưa thành niên và lao động cao tuổi. Chương XII: Lao động nước ngoài làm việc tại Việt Nam"
+  },
+  "chuong13-15_to-chuc-dai-dien.txt": {
+    "source": "chuong13-15_to-chuc-dai-dien.txt",
+    "category": "to_chuc_dai_dien_nguoi_lao_dong",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "XIII-XV",
+    "topic": "to-chuc-dai-dien",
+    "description": "Chương XIII: Tổ chức đại diện người lao động tại cơ sở. Chương XIV: Giải quyết tranh chấp lao động. Chương XV: Đình công"
+  },
+  "chuong16-17_thanh-tra.txt": {
+    "source": "chuong16-17_thanh-tra.txt",
+    "category": "thanh_tra_xu_ly_vi_pham",
+    "date": "2019-11-20",
+    "language": "vi",
+    "document_title": "Bộ luật Lao động 45/2019/QH14",
+    "chapters": "XVI-XVII",
+    "topic": "thanh-tra",
+    "description": "Chương XVI: Thanh tra lao động, xử lý vi phạm pháp luật về lao động. Chương XVII: Điều khoản thi hành"
+  }
+}
