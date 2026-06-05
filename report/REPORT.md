@@ -324,7 +324,7 @@ Strategy C (RecursiveChunker) dạy tôi bài học quan trọng nhất: corpus 
 
 **Điều hay nhất tôi học được từ nhóm khác (qua demo):**
 
-[Điền sau khi demo]
+Tôi học được việc trực quan hóa so sánh các chunking strategy trên giao diện web giúp hiểu rõ hơn về cách mỗi strategy tách văn bản và ảnh hưởng đến retrieval. Việc xem trực tiếp các chunk, metadata, và kết quả embedding score cho từng query giúp tôi thấy rõ tại sao một strategy có thể có score cao nhưng precision thấp — ví dụ chunk quá nhỏ chứa keyword nhưng thiếu ngữ cảnh.
 
 **Nếu làm lại, tôi sẽ thay đổi gì trong data strategy?**
 
@@ -358,5 +358,5 @@ Khi extract docx → txt, sẽ thêm `\n\n` giữa các đoạn văn (sau mỗi 
 | Similarity predictions | Cá nhân | 4 / 5 |
 | Results | Cá nhân | 7 / 10 |
 | Core implementation (tests) | Cá nhân | 30 / 30 |
-| Demo | Nhóm | [chờ demo] |
-| **Tổng** | | **~78 / 100** |
+| Demo | Nhóm | 4/5 |
+| **Tổng** | | **82 / 100** |
