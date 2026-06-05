@@ -1,7 +1,7 @@
 # Báo Cáo Lab 7: Embedding & Vector Store
 
 **Họ tên:** Nguyễn Mai Hồng Trâm
-**Nhóm:** [Tên nhóm]
+**Nhóm:** 007
 **Ngày:** 05/06/2026
 
 ---
