@@ -19,6 +19,7 @@ class EmbeddingStore:
         self,
         collection_name: str = "documents",
         embedding_fn: Callable[[str], list[float]] | None = None,
+        persist_directory: str | None = None,
     ) -> None:
         self._embedding_fn = embedding_fn or _mock_embed
         self._collection_name = collection_name
@@ -30,12 +31,35 @@ class EmbeddingStore:
         try:
             import chromadb
 
-            client = chromadb.Client()
-            self._collection = client.create_collection(name=collection_name)
+            if persist_directory:
+                client = chromadb.PersistentClient(path=persist_directory)
+                self._collection = client.get_or_create_collection(
+                    name=collection_name,
+                    metadata={"hnsw:space": "cosine"},
+                )
+            else:
+                client = chromadb.EphemeralClient()
+                # ChromaDB 1.x EphemeralClient is process-global (shared singleton),
+                # so delete any existing collection to guarantee a clean start.
+                try:
+                    client.delete_collection(collection_name)
+                except Exception:
+                    pass
+                self._collection = client.create_collection(
+                    name=collection_name,
+                    metadata={"hnsw:space": "cosine"},
+                )
+            self._client = client  # keep client alive for ephemeral stores
             self._use_chroma = True
         except Exception:
             self._use_chroma = False
             self._collection = None
+
+    @staticmethod
+    def _to_chroma_where(metadata_filter: dict) -> dict:
+        """Convert equality dict to ChromaDB where clause with explicit $eq operators."""
+        clauses = [{k: {"$eq": v}} for k, v in metadata_filter.items()]
+        return clauses[0] if len(clauses) == 1 else {"$and": clauses}
 
     def _make_record(self, doc: Document) -> dict[str, Any]:
         embedding = self._embedding_fn(doc.content)
@@ -84,10 +108,13 @@ class EmbeddingStore:
         For in-memory: compute dot product of query embedding vs all stored embeddings.
         """
         if self._use_chroma and self._collection is not None:
+            count = self._collection.count()
+            if count == 0:
+                return []
             query_emb = self._embedding_fn(query)
             results = self._collection.query(
                 query_embeddings=[query_emb],
-                n_results=min(top_k, self._collection.count()),
+                n_results=min(top_k, count),
             )
             output = []
             for i, doc in enumerate(results["documents"][0]):
@@ -109,8 +136,33 @@ class EmbeddingStore:
         """
         Search with optional metadata pre-filtering.
 
-        First filter stored chunks by metadata_filter, then run similarity search.
+        For ChromaDB: uses where clause for server-side filtering.
+        For in-memory: filters stored chunks by metadata_filter, then runs similarity search.
         """
+        if self._use_chroma and self._collection is not None:
+            if metadata_filter is None:
+                return self.search(query, top_k=top_k)
+            count = self._collection.count()
+            if count == 0:
+                return []
+            query_emb = self._embedding_fn(query)
+            try:
+                results = self._collection.query(
+                    query_embeddings=[query_emb],
+                    n_results=min(top_k, count),
+                    where=self._to_chroma_where(metadata_filter),
+                )
+            except Exception:
+                return []
+            output = []
+            for i, doc in enumerate(results["documents"][0]):
+                output.append({
+                    "content": doc,
+                    "metadata": results["metadatas"][0][i],
+                    "score": 1 - results["distances"][0][i],
+                })
+            return output
+
         if metadata_filter is None:
             return self._search_records(query, self._store, top_k)
         filtered = [
@@ -125,6 +177,14 @@ class EmbeddingStore:
 
         Returns True if any chunks were removed, False otherwise.
         """
+        if self._use_chroma and self._collection is not None:
+            before = self._collection.count()
+            try:
+                self._collection.delete(where={"doc_id": {"$eq": doc_id}})
+            except Exception:
+                return False
+            return self._collection.count() < before
+
         before = len(self._store)
         self._store = [r for r in self._store if r["metadata"].get("doc_id") != doc_id]
         return len(self._store) < before
