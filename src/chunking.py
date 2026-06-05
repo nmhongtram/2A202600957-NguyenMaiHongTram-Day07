@@ -116,6 +116,79 @@ class RecursiveChunker:
         return result if result else [current_text]
 
 
+class SectionChunker:
+    """
+    Split text at Vietnamese legal section/heading boundaries.
+
+    Detects heading lines that start with:  Chương / Mục / Điều  (and uppercase variants).
+    Each chunk = heading + following content lines until the next heading.
+    Oversized sections (> max_size chars) are subdivided with SentenceChunker(4).
+    Undersized sections (< min_size chars) are merged into the following chunk.
+    """
+
+    _HEADING_RE = re.compile(
+        r'^(Chương|CHƯƠNG|Mục|MỤC|Điều|ĐIỀU)\s+'
+    )
+
+    def __init__(self, max_size: int = 800, min_size: int = 80) -> None:
+        self.max_size = max_size
+        self.min_size = min_size
+
+    def chunk(self, text: str) -> list[str]:
+        if not text:
+            return []
+
+        # ── 1. Split into raw sections at each heading boundary ──────────────
+        lines = text.split('\n')
+        raw_sections: list[str] = []
+        current: list[str] = []
+
+        for line in lines:
+            stripped = line.strip()
+            if not stripped:
+                continue
+            if self._HEADING_RE.match(stripped):
+                if current:
+                    raw_sections.append('\n'.join(current))
+                current = [stripped]
+            else:
+                current.append(stripped)
+
+        if current:
+            raw_sections.append('\n'.join(current))
+
+        if not raw_sections:
+            return [text]
+
+        # ── 2. Post-process: subdivide oversized, merge undersized ────────────
+        result: list[str] = []
+        pending = ''          # accumulator for undersized sections
+
+        for section in raw_sections:
+            if pending:
+                merged = pending + '\n' + section
+                if len(merged) <= self.max_size:
+                    pending = merged
+                    continue
+                else:
+                    # Flush pending before starting fresh
+                    result.append(pending)
+                    pending = ''
+
+            if len(section) > self.max_size:
+                subs = SentenceChunker(max_sentences_per_chunk=4).chunk(section)
+                result.extend(subs)
+            elif len(section) < self.min_size:
+                pending = section
+            else:
+                result.append(section)
+
+        if pending:
+            result.append(pending)
+
+        return [c.strip() for c in result if c.strip()]
+
+
 def _dot(a: list[float], b: list[float]) -> float:
     return sum(x * y for x, y in zip(a, b))
 
