@@ -1,62 +1,68 @@
 {
-  "chuong1-3_quy-dinh-chung.txt": {
-    "source": "chuong1-3_quy-dinh-chung.txt",
-    "category": "quy_dinh_chung",
+  "chuong1-3_quy-dinh-viec-lam-hop-dong.txt": {
+    "source": "chuong1-3_quy-dinh-viec-lam-hop-dong.txt",
+    "category": "quy_dinh_chung_viec_lam_hop_dong",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "I-III",
     "topic": "quy-dinh-chung",
+    "topics": "quy-dinh-chung,viec-lam,hop-dong-lao-dong",
     "description": "Chương I: Quy định chung — phạm vi, đối tượng áp dụng, nguyên tắc. Chương II: Việc làm. Chương III: Hợp đồng lao động"
   },
-  "chuong4-6_giao-duc-nghe-nghiep.txt": {
-    "source": "chuong4-6_giao-duc-nghe-nghiep.txt",
-    "category": "giao_duc_nghe_nghiep",
+  "chuong4-6_giao-duc-thuong-luong-tien-luong.txt": {
+    "source": "chuong4-6_giao-duc-thuong-luong-tien-luong.txt",
+    "category": "giao_duc_thuong_luong_tien_luong",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "IV-VI",
     "topic": "giao-duc-nghe-nghiep",
+    "topics": "giao-duc-nghe-nghiep,thuong-luong-tap-the,tien-luong",
     "description": "Chương IV: Giáo dục nghề nghiệp và phát triển kỹ năng nghề. Chương V: Đối thoại, thương lượng tập thể, thỏa ước lao động tập thể. Chương VI: Tiền lương"
   },
-  "chuong7-9_thoi-gio-lam-viec.txt": {
-    "source": "chuong7-9_thoi-gio-lam-viec.txt",
-    "category": "thoi_gio_lam_viec",
+  "chuong7-9_thoi-gio-ky-luat-an-toan.txt": {
+    "source": "chuong7-9_thoi-gio-ky-luat-an-toan.txt",
+    "category": "thoi_gio_ky_luat_an_toan",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "VII-IX",
     "topic": "thoi-gio-lam-viec",
+    "topics": "thoi-gio-lam-viec,ky-luat-lao-dong,an-toan-ve-sinh",
     "description": "Chương VII: Thời giờ làm việc, thời giờ nghỉ ngơi. Chương VIII: Kỷ luật lao động, trách nhiệm vật chất. Chương IX: An toàn, vệ sinh lao động"
   },
-  "chuong10-12_lao-dong-nu.txt": {
-    "source": "chuong10-12_lao-dong-nu.txt",
-    "category": "lao_dong_nu_binh_dang_gioi",
+  "chuong10-12_lao-dong-dac-biet.txt": {
+    "source": "chuong10-12_lao-dong-dac-biet.txt",
+    "category": "lao_dong_dac_biet",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "X-XII",
     "topic": "lao-dong-nu",
+    "topics": "lao-dong-nu,lao-dong-chua-thanh-nien,lao-dong-nuoc-ngoai",
     "description": "Chương X: Quy định riêng đối với lao động nữ và bảo đảm bình đẳng giới. Chương XI: Lao động chưa thành niên và lao động cao tuổi. Chương XII: Lao động nước ngoài làm việc tại Việt Nam"
   },
-  "chuong13-15_to-chuc-dai-dien.txt": {
-    "source": "chuong13-15_to-chuc-dai-dien.txt",
-    "category": "to_chuc_dai_dien_nguoi_lao_dong",
+  "chuong13-15_dai-dien-tranh-chap-dinh-cong.txt": {
+    "source": "chuong13-15_dai-dien-tranh-chap-dinh-cong.txt",
+    "category": "dai_dien_tranh_chap_dinh_cong",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "XIII-XV",
     "topic": "to-chuc-dai-dien",
+    "topics": "to-chuc-dai-dien,tranh-chap-lao-dong,dinh-cong",
     "description": "Chương XIII: Tổ chức đại diện người lao động tại cơ sở. Chương XIV: Giải quyết tranh chấp lao động. Chương XV: Đình công"
   },
-  "chuong16-17_thanh-tra.txt": {
-    "source": "chuong16-17_thanh-tra.txt",
-    "category": "thanh_tra_xu_ly_vi_pham",
+  "chuong16-17_thanh-tra-dieu-khoan.txt": {
+    "source": "chuong16-17_thanh-tra-dieu-khoan.txt",
+    "category": "thanh_tra_dieu_khoan",
     "date": "2019-11-20",
     "language": "vi",
     "document_title": "Bộ luật Lao động 45/2019/QH14",
     "chapters": "XVI-XVII",
     "topic": "thanh-tra",
+    "topics": "thanh-tra,dieu-khoan-thi-hanh",
     "description": "Chương XVI: Thanh tra lao động, xử lý vi phạm pháp luật về lao động. Chương XVII: Điều khoản thi hành"
   }
 }
